@@ -59,7 +59,7 @@ namespace QMS.Pages
                     ddlDanio.DataValueField = "IdDanio";
                     ddlDanio.DataBind();
 
-                    ddlTipoDeformacion.DataSource = listaDanio;
+                    ddlTipoDeformacion.DataSource = listaTipoDeformacion;
                     ddlTipoDeformacion.DataTextField = "tipoDeformacion";
                     ddlTipoDeformacion.DataValueField = "IdTipoDeformacion";
                     ddlTipoDeformacion.DataBind();

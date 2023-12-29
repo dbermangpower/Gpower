@@ -95,5 +95,11 @@ namespace QMS.Pages
             Session.Add("IdReporte", IdReporteSeleccionado);
             Response.Redirect("ReporteBIDI.aspx");
         }
+
+        protected void btnAgregarCLP_Click(object sender, EventArgs e)
+        {
+            Session.Add("IdReporte", IdReporteSeleccionado);
+            Response.Redirect("ReporteCLP.aspx");
+        }
     }
 }

@@ -1,56 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReporteBIDI.aspx.cs" Inherits="QMS.Pages.ReporteBIDI" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
-        body {
-            background: #83d49d;
-        }
-
-        .forget-pwd > a {
-            color: #dc3545;
-            font-weight: 500;
-        }
-
-        .forget-password .panel-default {
-            padding: 31%;
-            margin-top: -27%;
-        }
-
-        .forget-password .panel-body {
-            padding: 15%;
-            margin-bottom: -50%;
-            background: #fff;
-            border-radius: 5px;
-            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-        img {
-            width: 40%;
-            margin-bottom: 10%;
-        }
-
-        .btnForget {
-            background: #c0392b;
-            border: none;
-        }
-
-        .forget-password .dropdown {
-            width: 100%;
-            border: 1px solid #ced4da;
-            border-radius: .25rem;
-        }
-
-            .forget-password .dropdown button {
-                width: 100%;
-            }
-
-            .forget-password .dropdown ul {
-                width: 100%;
-            }
-    </style>
+<link rel="stylesheet" href="../Content/ReportesStyle.css">
     <div class="container forget-password">
         <div class="row">
-            <div class="col-xl-20 col-md-offset-4">
+            <div class="col-xxl-12 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="text-center">

@@ -247,6 +247,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ReportesStyle.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="Pages\AltaHerramienta.aspx" />
     <Content Include="Pages\AltaReporte.aspx" />
     <Content Include="Pages\About.aspx" />
