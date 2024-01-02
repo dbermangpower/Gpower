@@ -18,6 +18,7 @@ namespace QMS.Pages
             if (!IsPostBack)
             {
                 cargar();
+                OcultarMostrarTxtCantSensores();
             }
         }
 
@@ -30,14 +31,31 @@ namespace QMS.Pages
                 herramienta.tipoHerramienta = new TipoHerramienta();
 
                 herramienta.tipoHerramienta.IdTipoHerramienta = int.Parse(ddlTipoHerramienta.SelectedItem.Value);
-                herramienta.Nombre = txtNombreHerramienta.Text;
-                if (short.TryParse(txtDiametro.Text, out short valorDiametro))
-                {
-                    herramienta.Diametro = valorDiametro;
-                }
 
-                herramientaNegocio.altaHerramienta(herramienta);
-                Response.Redirect("Herramientas.aspx",false);
+                //Verifica que no exista otra herramienta con el mismo nombre
+                if(herramientaNegocio.validarNombre(txtNombreHerramienta.Text) == false)
+                {
+                    herramienta.Nombre = txtNombreHerramienta.Text;
+
+                    if (short.TryParse(txtDiametro.Text, out short valorDiametro))
+                    {
+                        herramienta.Diametro = valorDiametro;
+                    }
+
+                    if (short.TryParse(txtCantSensores.Text, out short cantSensores))
+                    {
+                        herramienta.cantSensores = cantSensores;
+                    }
+
+                    herramientaNegocio.altaHerramienta(herramienta);
+                    Response.Redirect("Herramientas.aspx", false);
+                }
+                else
+                {
+                    lblError.Text = "Ya existe una herramienta con el mismo nombre.";
+                    lblError.Visible = true;
+                }
+               
 
             }
             catch (Exception ex)
@@ -49,6 +67,7 @@ namespace QMS.Pages
 
         private void cargar()
         {
+
             // Lista los tipos de herramienta solo si no es un postback
             foreach (EnumTipoHerramienta tipoEnum in Enum.GetValues(typeof(EnumTipoHerramienta)))
             {
@@ -66,6 +85,30 @@ namespace QMS.Pages
             ddlTipoHerramienta.DataTextField = "tipoHerramienta";
             ddlTipoHerramienta.DataValueField = "IdTipoHerramienta";
             ddlTipoHerramienta.DataBind();
+        }
+
+        protected void ddlTipoHerramienta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlTipoHerramienta.SelectedValue == "1")
+            {
+                txtCantSensores.Visible = false;
+            }
+            else
+            {
+                txtCantSensores.Visible = true;
+            }
+        }
+
+        private void OcultarMostrarTxtCantSensores()
+        {
+            if (ddlTipoHerramienta.SelectedValue == "1")
+            {
+                txtCantSensores.Visible = false;
+            }
+            else
+            {
+                txtCantSensores.Visible = true;
+            }
         }
     }
 }

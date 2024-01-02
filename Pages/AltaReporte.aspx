@@ -124,6 +124,10 @@
                     <asp:DropDownList ID="ddlClente" runat="server" OnSelectedIndexChanged="ddlClente_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                     <label for="Linea">Linea</label>
                     <asp:DropDownList ID="ddlLinea" runat="server"></asp:DropDownList>
+                    <label for="Mes">Mes</label>
+                    <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
+                    <label for="Anio">Año</label>
+                    <asp:DropDownList ID="ddlAnio" runat="server"></asp:DropDownList>
                 </fieldset>
                 <fieldset>
                     <legend><i class="fa fa-lock"></i>Datos inspección</legend>

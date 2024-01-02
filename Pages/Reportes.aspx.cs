@@ -29,7 +29,9 @@ namespace QMS
             if (e.CommandName == "btnDetalle")
             {
                 int IdReporte = Convert.ToInt32(e.CommandArgument.ToString());
-
+                ReporteNegocio reporteNegocio = new ReporteNegocio();
+                Reporte aux = reporteNegocio.buscarReporte(IdReporte);
+                Session["TipoReporte"] = aux.TipoInspeccion.IdTipoInspeccion;
                 Response.Redirect("DetalleQMS.aspx?id=" + IdReporte);
             }
         }
@@ -62,6 +64,7 @@ namespace QMS
         {
             if (!IsPostBack)
             {
+
                 //Agrega opciones de filtro
                 ListItem item0 = new ListItem("--------", "0");
                 ListItem item1 = new ListItem("Cliente", "1");
@@ -143,5 +146,9 @@ namespace QMS
             }
         }
 
+        protected void btnAgregarReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaReporte.aspx", false);
+        }
     }
 }

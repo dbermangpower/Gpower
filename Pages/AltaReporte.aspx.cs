@@ -2,6 +2,7 @@
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -52,6 +53,27 @@ namespace QMS
                 ddlLinea.DataValueField = "IdLinea";
                 ddlLinea.DataTextField = "NombreLinea";
                 ddlLinea.DataBind();
+
+                // Generar los meses dinámicamente
+                for (int i = 1; i <= 12; i++)
+                {
+                    ddlMes.Items.Add(new ListItem(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i), i.ToString()));
+                }
+
+                // Generar los años dinámicamente (por ejemplo, desde 2000 hasta 2050)
+                int anioActual = DateTime.Now.Year;
+                for (int i = anioActual; i <= anioActual + 30; i++)
+                {
+                    ddlAnio.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                }
+
+                //Selecciona por default el mes y año en curso
+                int mesActual = DateTime.Now.Month;
+                anioActual = DateTime.Now.Year;
+
+                ddlMes.SelectedValue = mesActual.ToString();
+                ddlAnio.SelectedValue = anioActual.ToString();
+                
             }
         }
 
@@ -65,14 +87,19 @@ namespace QMS
                 reporte.DatosLinea.IdLinea = int.Parse(ddlLinea.SelectedItem.Value);
                 reporte.TipoInspeccion = new TipoInspeccion();
                 reporte.TipoInspeccion.IdTipoInspeccion = short.Parse(rdbTipoInspeccion.SelectedItem.Value);
-                
+
+                int mesSeleccionado = Convert.ToInt32(ddlMes.SelectedValue);
+                int anioSeleccionado = Convert.ToInt32(ddlAnio.SelectedValue);
+
+                reporte.FechaInspeccion = new DateTime(anioSeleccionado, mesSeleccionado, 1);
+
                 reporteNegocio.agregarReporte(reporte);
                 Response.Redirect("Reportes.aspx",false);
             }
             catch (Exception ex)
             {
                 Session.Add("Error", ex);
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx",false);
             }
         }
 
@@ -90,5 +117,6 @@ namespace QMS
             ddlLinea.DataTextField = "NombreLinea";
             ddlLinea.DataBind();
         }
+
     }
 }

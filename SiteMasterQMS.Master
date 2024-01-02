@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - QMS</title>
@@ -13,9 +13,8 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -57,62 +56,73 @@
             </div>
         </nav>
 
-    
-    <div class="layout has-sidebar d-flex">
-        <aside class="sidebar col-md-auto col-xl-auto bg-dark">
-            <div class="col-md-auto bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-3 text-white min-vh-100">
-                    <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Detalle</span>
-                    </a>
-                    <ul class="nav flex-grow-5 flex-column mb-sm-auto align-items-center align-items-sm-start" id="menu">
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <a href="" class="nav-link">
-                                <table>
-                                    <tr>
-                                        <td colspan="1" style="width= 22"><img src="Icons/usuarios.png" alt="" width="20" height="20" /></td>
-                                        <td style="max-width: 120px;">
-                                            <h6 class="mb-0 text-white">BIDI</h6>
-                                        </td>
-                                </table>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="nav-link align-middle">
-                                <table>
-                                    <tr>
-                                        <td colspan="1" style="width= 22"><img src="Icons/Motivos.png" alt="" width="20" height="20" /></td>
-                                        <td style="max-width: 120px;"><h6 class="mb-0 text-white" style="white-space: nowrap;">CLP</h6></td>
-                                    </tr>
-                                </table>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="nav-link align-middle">
-                                <table>
-                                    <tr>
-                                        <td colspan="1" style="width= 22">
-                                            <img src="Icons/Profile.png" alt="" width="20" height="20" /></td>
-                                        <td style="max-width: 120px;"><h6 class="mb-0 text-white">MFL</h6></td>
-                                    </tr>
-                                </table>
-                            </a>
-                        </li>
-                    </ul>
+        <div class="layout has-sidebar d-flex">
+            <aside class="sidebar col-md-auto col-xl-auto bg-dark">
+                <div class="col-md-auto bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-3 text-white min-vh-100">
+                        <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <span class="fs-5 d-none d-sm-inline">Detalle</span>
+                        </a>
+                        <ul class="nav flex-grow-5 flex-column mb-sm-auto align-items-center align-items-sm-start" id="menu">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <a href="" class="nav-link">
+                                    <table>
+                                        <tr>
+                                            <td colspan="1" style="width= 22">
+                                                <img src="Icons/usuarios.png" alt="" width="20" height="20" /></td>
+                                            <td style="max-width: 120px;">
+                                                <h6 class="mb-0 text-white">BIDI</h6>
+                                            </td>
+                                    </table></li>
+                            <%if ((short)Session["TipoReporte"] != 1)
+                                { %>
+                            <li>
+                                <a href="" class="nav-link align-middle">
+                                    <table>
+                                        <tr>
+                                            <td colspan="1" style="width= 22">
+                                                <img src="Icons/Motivos.png" alt="" width="20" height="20" /></td>
+                                            <td style="max-width: 120px;">
+                                                <h6 class="mb-0 text-white" style="white-space: nowrap;">CLP</h6>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </a>
+                            </li>
+                            <%   }%>
+
+                            <%if ((short)Session["TipoReporte"] != 2)
+                                { %>
+                            <li>
+                                <a href="" class="nav-link align-middle">
+                                    <table>
+                                        <tr>
+                                            <td colspan="1" style="width= 22">
+                                                <img src="Icons/Profile.png" alt="" width="20" height="20" /></td>
+                                            <td style="max-width: 120px;">
+                                                <h6 class="mb-0 text-white">MFL</h6>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </a>
+                            </li>
+                            <%   }%>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </aside>
-        <main class="content col-md-9 col-xl-10 bg-light">
-            <div class="container body-content">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-                <hr />
-                <footer>
-                    <p>&copy; <%: DateTime.Now.Year %></p>
-                </footer>
-            </div>
-        </main>
-    </div>
-        </form>
+            </aside>
+
+            <main class="content col-md-9 col-xl-10 bg-light">
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <hr />
+                    <footer>
+                        <p>&copy; <%: DateTime.Now.Year %></p>
+                    </footer>
+                </div>
+            </main>
+        </div>
+    </form>
 </body>
 </html>

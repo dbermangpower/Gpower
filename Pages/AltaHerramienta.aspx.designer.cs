@@ -51,6 +51,15 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDiametro;
 
         /// <summary>
+        /// Control txtCantSensores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCantSensores;
+
+        /// <summary>
         /// Control ddlTipoHerramienta.
         /// </summary>
         /// <remarks>

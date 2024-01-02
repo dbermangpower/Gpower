@@ -38,6 +38,7 @@
                 <asp:BoundField HeaderText="Descripción" DataField="Nombre" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="Diametro" DataField="Diametro" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="Tipo de herramienta" DataField="tipoHerramienta.tipoHerramienta" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
+                <asp:BoundField HeaderText="Cantidad de sensores" DataField="CantSensores" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
                 <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <asp:LinkButton Text="Editar" runat="server" ID="btnEditar" CommandName="btnEditar" CommandArgument='<%#Eval("IdHerramienta") %>' CssClass="btn btn-secondary" Width="100px" />

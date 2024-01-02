@@ -20,7 +20,10 @@
                             <asp:RequiredFieldValidator ID="rfvDiametro" ErrorMessage="Ingrese Diametro" ForeColor="Red" ControlToValidate="txtDiametro" runat="server" />
                         </div>
                         <div class="row gap-2 col-15 mx-auto">
-                            <asp:DropDownList ID="ddlTipoHerramienta" AutoPostBack="true" runat="server"></asp:DropDownList>
+                            <asp:TextBox ID="txtCantSensores" placeholder="Cantidad de sensores:" runat="server" Class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="row gap-2 col-15 mx-auto">
+                            <asp:DropDownList ID="ddlTipoHerramienta" AutoPostBack="true" runat="server" CssClass="btn btn-light dropdown-toggle" OnSelectedIndexChanged="ddlTipoHerramienta_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="row gap-2 col-15 mx-auto text-center">
                             <asp:Button ID="btnAgregar" runat="server" type="submit" OnClick="btnAgregar_Click" class="btn btn-primary" Text="Agregar" CausesValidation="true" />

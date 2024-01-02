@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReporteCLP.aspx.cs" Inherits="QMS.Pages.ReporteCLP" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<link rel="stylesheet" href="../Content/ReportesStyle.css">
+    <link rel="stylesheet" href="../Content/ReportesStyle.css">
     <div class="container forget-password">
         <div class="row">
             <div class="col-xxl-12 col-md-offset-4">
@@ -20,7 +20,7 @@
                                 <tr>
                                     <td>Herramienta:</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlHerramienta" runat="server" CssClass="form-control"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddlHerramienta" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlHerramienta_SelectedIndexChanged"></asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr class="form-group">
@@ -50,22 +50,34 @@
                                     <td>Daño en Herramienta</td>
                                     <td>
                                         <asp:DropDownList ID="ddlDanio" runat="server" CssClass="form-control"></asp:DropDownList></td>
-                                    <td>
-                                     <asp:DropDownList ID="ddlTipoDeformacion" runat="server" CssClass="form-control"></asp:DropDownList></td>
                                 </tr>
+                                <tr>
+                                    <td>Sensores dañados:</td>
+                                    <td>
+                                        <asp:DropDownList ID="ddlSensores" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSensores_SelectedIndexChanged"></asp:DropDownList>
+                                    <td>
+                                        <asp:Label ID="lblFlaps" runat="server" Text="Enumere Flaps dañados"></asp:Label></td>
+                                    <td>
+                                        <asp:ListBox ID="listBoxFlaps" runat="server"></asp:ListBox></td>
+                                    0
+                                </tr>
+
                                 <tr>
                                     <td>Comentarios:</td>
                                     <td>
                                         <asp:TextBox runat="server" ID="txtComentarios" TextMode="MultiLine" Columns="20" Rows="3" Width="600px" Height="100px" CssClass="form-control" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click"/></td>
-                                    <td><asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" /></td>
+                                    <td>
+                                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" /></td>
+                                    <td>
+                                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" /></td>
                                 </tr>
-                            </table>  
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div></asp:Content>
+    </div>
+</asp:Content>

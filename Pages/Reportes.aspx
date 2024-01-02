@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Reportes.aspx.cs" Inherits="QMS.Reportes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <asp:Button ID="btnAgregarReporte" runat="server" Text="Agregar reporte nueva inspección" CssClass="btn btn-outline-secondary" OnClick="btnAgregarReporte_Click"/>
+
     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+    <br />
     <p>Filtrar por:</p>
     <div>
         <asp:DropDownList ID="DropDownListFiltro" runat="server" AutoPostBack="true"></asp:DropDownList>
@@ -27,7 +31,7 @@
             <asp:BoundField HeaderText="Tipo de inspección" DataField="TipoInspeccion.TipoInspeccion" />
             <asp:BoundField HeaderText="Nombre Linea" DataField="DatosLinea.NombreLinea" />
             <asp:BoundField HeaderText="Cliente" DataField="DatosLinea.cliente.NombreCliente" />
-
+            <asp:BoundField HeaderText="Fecha de inspección" DataField="FechaInspeccion" DataFormatString="{0:MM/yyyy}" />       
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdReporte") %>' />

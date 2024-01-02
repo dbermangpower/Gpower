@@ -153,5 +153,9 @@ namespace QMS.Pages
                 Response.Redirect("Herramientas.aspx?Filtro=" + filtro + "&Diametro=" + opcion, false);
             }
         }
+        //
+        private void validarNombre(string nombre) { 
+
+        }
     }
 }

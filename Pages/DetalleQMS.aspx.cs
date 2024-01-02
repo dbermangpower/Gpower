@@ -21,6 +21,10 @@ namespace QMS.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["id"] == null)
+            {
+                Response.Redirect("Reportes.aspx", false);
+            }
             cargar();
         }
 
@@ -74,7 +78,6 @@ namespace QMS.Pages
                         string duracionFormateada = $"{horas:00}:{minutos:00}";
 
                         lblDuracion.Text = duracionFormateada; // Asigna al texto del label la duración formateada
-
                     }
                     else
                     {
@@ -82,11 +85,10 @@ namespace QMS.Pages
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 Session.Add("Error", ex);
-                Response.Redirect("Error.aspx");
+                Response.Redirect("Error.aspx",false);
             }
         }
 
@@ -100,6 +102,12 @@ namespace QMS.Pages
         {
             Session.Add("IdReporte", IdReporteSeleccionado);
             Response.Redirect("ReporteCLP.aspx");
+        }
+
+        protected void btnAgregarMFL_Click(object sender, EventArgs e)
+        {
+            Session.Add("IdReporte", IdReporteSeleccionado);
+            Response.Redirect("ReporteMFL.aspx");
         }
     }
 }
