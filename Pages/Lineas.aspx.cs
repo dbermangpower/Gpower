@@ -37,6 +37,12 @@ namespace QMS.Pages
 
                 Response.Redirect("DetalleLinea.aspx?id=" + IdLinea);
             }
+            if (e.CommandName == "btnEditar")
+            {
+                int IdLinea = Convert.ToInt32(e.CommandArgument.ToString());
+
+                Response.Redirect("AltaLinea.aspx?id=" + IdLinea);
+            }
         }
 
         private void CargarGrilla()

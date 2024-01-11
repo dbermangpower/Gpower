@@ -23,13 +23,14 @@
             <td>Diámetro de tubería:</td>
             <td>
                 <asp:TextBox runat="server" ID="txtDiametro" CssClass="form-control" Width="200px" /></td>
-            <asp:RegularExpressionValidator ID="regexValidator" runat="server" ControlToValidate="txtDiametro"
-                ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" />
+            <td>
+                <asp:RegularExpressionValidator ID="rvDiametro" runat="server" ControlToValidate="txtDiametro"
+                    ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\,\d+)?$" /></td>
         </tr>
         <tr>
             <td>Largo de tubería:</td>
             <td>
-                <asp:TextBox runat="server" ID="txtLargo" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+                <asp:TextBox runat="server" ID="txtLargo" CssClass="form-control" Width="200px" /></td>
         </tr>
         <tr>
             <td>Grado de tubería API 5L:</td>
@@ -51,40 +52,46 @@
             <td>
                 <asp:TextBox runat="server" ID="txtPresion" CssClass="form-control" Width="200px" /></td>
             <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPresion"
-                    ErrorMessage="Este campo es obligatorio." ForeColor="Red" /></td>
+                <asp:DropDownList ID="ddlUnidadPresion" runat="server" CssClass="btn btn-outline-secondary"></asp:DropDownList></td>
             <td>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPresion"
-                    ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" ForeColor="Red" /></td>
+                <asp:RegularExpressionValidator ID="rvPD" runat="server" ControlToValidate="txtPresion"
+                    ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\,\d+)?$" ForeColor="Red" /></td>
+            <td>
         </tr>
         <tr>
             <td>Factor de diseño:</td>
             <td>
                 <asp:TextBox runat="server" ID="txtFactor" CssClass="form-control" Width="200px" /></td>
             <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFactor"
+                <asp:RequiredFieldValidator ID="rfvFactor" runat="server" ControlToValidate="txtFactor"
                     ErrorMessage="Este campo es obligatorio." ForeColor="Red" /></td>
             <td>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFactor"
+                <asp:RegularExpressionValidator ID="revFactor" runat="server" ControlToValidate="txtFactor"
                     ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" ForeColor="Red" /></td>
         </tr>
         <tr>
             <td>MAOP:</td>
             <td>
-                <asp:TextBox runat="server" ID="txtMAOP" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+                <asp:TextBox runat="server" ID="txtMAOP" CssClass="form-control" Width="200px" /></td>
         </tr>
         <tr>
             <td>Espesor Nominal:</td>
             <td>
                 <asp:TextBox runat="server" ID="txtEspesorNominal" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+            <td>
+                <asp:RegularExpressionValidator ID="revEspNom" runat="server" ControlToValidate="txtEspesorNominal"
+                    ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" ForeColor="Red" /></td>
         </tr>
         <tr>
             <td>Espesor Mínimo:</td>
             <td>
-                <asp:TextBox runat="server" ID="txtEspesorMin" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+                <asp:TextBox runat="server" ID="txtEspesorMin" CssClass="form-control" Width="200px" /></td>
+            <td>
+                <asp:RegularExpressionValidator ID="revEspMin" runat="server" ControlToValidate="txtEspesorMin"
+                    ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" ForeColor="Red" /></td>
             <td>Espesor Máximo:</td>
             <td>
-                <asp:TextBox runat="server" ID="txtEspesorMax" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+                <asp:TextBox runat="server" ID="txtEspesorMax" CssClass="form-control" Width="200px" /></td>
         </tr>
         <tr>
             <td>Año instalación:</td>
@@ -106,7 +113,7 @@
         <tr>
             <td>SMYS:</td>
             <td>
-                <asp:TextBox runat="server" ID="txtSMYS" CssClass="form-control" TextMode="Number" Width="200px" /></td>
+                <asp:TextBox runat="server" ID="txtSMYS" CssClass="form-control" Width="200px" /></td>
         </tr>
     </table>
 

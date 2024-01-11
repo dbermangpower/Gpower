@@ -88,14 +88,15 @@
                     font-weight: 700;
                 }
 
-            .form-body .radiolist label {
-                display: flex;
-                align-items: center;
-                margin-bottom: 0.5em;
+            .form-body .radiolist input[type="radio"] {
+                display: inline-block;
+                vertical-align: middle;
             }
 
-            .form-body .radiolist input[type="radio"] {
-                margin-right: 0.5em; /* Espacio entre el botón de radio y el texto */
+            .form-body .radiolist label {
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 0.5em; /* Espacio entre el botón de radio y el texto */
             }
 
         .form-footer {
@@ -133,10 +134,11 @@
                     <legend><i class="fa fa-lock"></i>Datos inspección</legend>
                     <label for="TipoInspeccion">Tipo de inspección</label>
                     <div>
-                        <asp:RadioButtonList ID="rdbTipoInspeccion" runat="server" AutoPostBack="false" RepeatDirection="Vertical">
+                        <asp:RadioButtonList ID="rdbTipoInspeccion" runat="server" AutoPostBack="false" RepeatDirection="Vertical" TextAlign="Right" >
                         </asp:RadioButtonList>
                     </div>
                 </fieldset>
+                <asp:CheckBox ID="cbIMU" Text="IMU" runat="server"/>
             </div>
             <div class="form-footer">
                 <asp:Button ID="btnAgregar" runat="server" Text="Aceptar" OnClick="btnAgregar_Click" />

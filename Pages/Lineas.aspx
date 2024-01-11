@@ -37,12 +37,12 @@
                 <Columns>
                     <asp:BoundField HeaderText="IdLinea" DataField="IdLinea" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
                     <asp:BoundField HeaderText="Nombre" DataField="NombreLinea" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
-                    <asp:BoundField HeaderText="Cliente" DataField="cliente.NombreCliente" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
-                    <asp:BoundField HeaderText="Diametro" DataField="Diametro" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" />
+                    <asp:BoundField HeaderText="Cliente" DataField="cliente.NombreCliente" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="20%"/>
+                    <asp:BoundField HeaderText="Diametro" DataField="Diametro" Visible="true" ItemStyle-CssClass="text-center" ItemStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="10%"/>
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
                             <asp:LinkButton Text="Editar" runat="server" ID="btnEditar" CommandName="btnEditar" CommandArgument='<%#Eval("IdLinea") %>' CssClass="btn btn-secondary" Width="100px" />
-                            <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdLinea") %>' CssClass="btn btn-primary" Width="100px" />
+                            <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdLinea") %>' CssClass="btn btn-primary" Width="120px" />
                         </ItemTemplate>
                         <ItemStyle Width="250px" HorizontalAlign="Center" />
                     </asp:TemplateField>

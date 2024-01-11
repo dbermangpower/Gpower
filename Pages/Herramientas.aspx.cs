@@ -25,7 +25,11 @@ namespace QMS.Pages
 
         protected void dgvHerramientas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "btnEditar")
+            {
+                int IdHerramienta = Convert.ToInt32(e.CommandArgument.ToString());
+                Response.Redirect("AltaHerramienta.aspx?Id=" + IdHerramienta);
+            }
         }
 
         protected void ButtonAgregar_Click(object sender, EventArgs e)
@@ -152,10 +156,6 @@ namespace QMS.Pages
 
                 Response.Redirect("Herramientas.aspx?Filtro=" + filtro + "&Diametro=" + opcion, false);
             }
-        }
-        //
-        private void validarNombre(string nombre) { 
-
         }
     }
 }

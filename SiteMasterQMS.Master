@@ -74,7 +74,7 @@
                                                 <h6 class="mb-0 text-white">BIDI</h6>
                                             </td>
                                     </table></li>
-                            <%if ((short)Session["TipoReporte"] != 1)
+                            <%if (Session.Count > 0 && (short)Session["TipoReporte"] != 1)
                                 { %>
                             <li>
                                 <a href="" class="nav-link align-middle">
@@ -91,7 +91,7 @@
                             </li>
                             <%   }%>
 
-                            <%if ((short)Session["TipoReporte"] != 2)
+                            <%if (Session.Count > 0 && (short)Session["TipoReporte"] != 2)
                                 { %>
                             <li>
                                 <a href="" class="nav-link align-middle">

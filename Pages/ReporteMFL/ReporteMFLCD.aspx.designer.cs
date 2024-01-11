@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QMS
+namespace QMS.Pages.ReporteMFL
 {
 
 
-    public partial class _Default
+    public partial class ReporteMFLCD
     {
     }
 }

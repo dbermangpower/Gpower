@@ -87,6 +87,13 @@ namespace QMS
                 reporte.DatosLinea.IdLinea = int.Parse(ddlLinea.SelectedItem.Value);
                 reporte.TipoInspeccion = new TipoInspeccion();
                 reporte.TipoInspeccion.IdTipoInspeccion = short.Parse(rdbTipoInspeccion.SelectedItem.Value);
+                if (cbIMU.Checked)
+                {
+                    //reporte.ReporteIMU = true;
+                } else
+                {
+                    //reporte.IMU = false;
+                }
 
                 int mesSeleccionado = Convert.ToInt32(ddlMes.SelectedValue);
                 int anioSeleccionado = Convert.ToInt32(ddlAnio.SelectedValue);

@@ -123,6 +123,15 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.Label lblMaximaReduccion;
 
         /// <summary>
+        /// Control btnEditarBIDI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditarBIDI;
+
+        /// <summary>
         /// Control btnAgregarBIDI.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace QMS.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHerramientaCLP;
+
+        /// <summary>
+        /// Control lblNumInspCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumInspCLP;
 
         /// <summary>
         /// Control lblFOCLP.
@@ -186,15 +204,6 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.Label lblDuracionCLP;
 
         /// <summary>
-        /// Control lblNumInspCLP.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumInspCLP;
-
-        /// <summary>
         /// Control lblResiduosCLP.
         /// </summary>
         /// <remarks>
@@ -213,6 +222,15 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.Label lblDanioCLP;
 
         /// <summary>
+        /// Control lblSensoresCLPDaniados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSensoresCLPDaniados;
+
+        /// <summary>
         /// Control lblSensoresCLP.
         /// </summary>
         /// <remarks>
@@ -220,6 +238,123 @@ namespace QMS.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSensoresCLP;
+
+        /// <summary>
+        /// Control lblPLCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPLCLP;
+
+        /// <summary>
+        /// Control lblPRCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPRCLP;
+
+        /// <summary>
+        /// Control lblTminCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTminCLP;
+
+        /// <summary>
+        /// Control lblTmaxCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTmaxCLP;
+
+        /// <summary>
+        /// Control lblFlujoCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFlujoCLP;
+
+        /// <summary>
+        /// Control lblVelProm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVelProm;
+
+        /// <summary>
+        /// Control lblGrabacionInicioCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrabacionInicioCLP;
+
+        /// <summary>
+        /// Control lblGrabacionFinCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrabacionFinCLP;
+
+        /// <summary>
+        /// Control lblTamanioDataCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTamanioDataCLP;
+
+        /// <summary>
+        /// Control lblOdo1CLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOdo1CLP;
+
+        /// <summary>
+        /// Control lblOdo2CLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOdo2CLP;
+
+        /// <summary>
+        /// Control btnAgregarNuevoCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarNuevoCLP;
+
+        /// <summary>
+        /// Control btnEditarCLP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditarCLP;
 
         /// <summary>
         /// Control btnAgregarCLP.

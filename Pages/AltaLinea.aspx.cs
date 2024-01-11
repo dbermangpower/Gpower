@@ -48,6 +48,47 @@ namespace QMS.Pages
             ddlSoldadura.DataTextField = "tipoSoldadura";
             ddlSoldadura.DataValueField = "IdTipoSoldadura";
             ddlSoldadura.DataBind();
+
+            ListItem item0 = new ListItem("MPa", "0");
+            ListItem item1 = new ListItem("psi", "1");
+            ListItem item2 = new ListItem("bar", "2");
+
+            ddlUnidadPresion.Items.Add(item0);
+            ddlUnidadPresion.Items.Add(item1);
+            ddlUnidadPresion.Items.Add(item2);
+
+            if (Request.QueryString["Id"] != null)
+            {
+                int IdLinea = int.Parse(Request.QueryString["Id"]);
+
+                DatosLineaNegocio datosLineaNegocio = new DatosLineaNegocio();
+                DatosLinea datosLinea = new DatosLinea();
+
+                datosLinea = datosLineaNegocio.BuscarLinea(IdLinea);
+
+                ddlCliente.SelectedItem.Value = datosLinea.cliente.IdCliente.ToString();
+                txtNombreLinea.Text = datosLinea.NombreLinea;
+                txtDiametro.Text = datosLinea.Diametro.ToString();
+                txtLargo.Text = datosLinea.LargoTuberia.ToString();
+                txtMAOP.Text = datosLinea.MAOP.ToString();
+                txtFactor.Text = datosLinea.FD.ToString();
+                txtAnioInstalacion.Text = datosLinea.AnioInstalacion.ToString();
+                txtPresion.Text = datosLinea.PD.ToString();
+                if(datosLinea.InspeccionPrevio == true)
+                {
+                    ddlInspeccionPrevia.SelectedItem.Value = "1";
+                    txtAnioInspeccionPrevia.Text = datosLinea.AnioInspeccionPrevia.ToString();
+                } else
+                {
+                    ddlInspeccionPrevia.SelectedItem.Value = "0";
+                }
+                txtProducto.Text = datosLinea.ProductoTransportado.ToString();
+                txtEspesorNominal.Text = datosLinea.EspesorNominal.ToString();
+                txtEspesorMin.Text = datosLinea.EspesorMin.ToString();
+                txtEspesorMax.Text = datosLinea.EspesorMax.ToString();
+                txtSMYS.Text = datosLinea.SMYS.ToString();  
+
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

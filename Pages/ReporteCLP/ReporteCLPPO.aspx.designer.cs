@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace QMS.Pages
+namespace QMS.Pages.ReporteCLP
 {
 
 
-    public partial class ReporteCLP
+    public partial class ReporteCLPPO
     {
 
         /// <summary>
@@ -24,103 +24,112 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.Label lblLinea;
 
         /// <summary>
-        /// Control ddlHerramienta.
+        /// Control lblHerramienta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHerramienta;
+        protected global::System.Web.UI.WebControls.Label lblHerramienta;
 
         /// <summary>
-        /// Control txtFechaOperacion.
+        /// Control txtPresionLanzador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaOperacion;
+        protected global::System.Web.UI.WebControls.TextBox txtPresionLanzador;
 
         /// <summary>
-        /// Control txtHoraOperacion.
+        /// Control rvPL.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraOperacion;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvPL;
 
         /// <summary>
-        /// Control txtFechaRecepcion.
+        /// Control txtPresionRecepcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaRecepcion;
+        protected global::System.Web.UI.WebControls.TextBox txtPresionRecepcion;
 
         /// <summary>
-        /// Control txtHoraRecepcion.
+        /// Control rvPR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraRecepcion;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvPR;
 
         /// <summary>
-        /// Control txtResiduos.
+        /// Control txtTemperaturaMin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResiduos;
+        protected global::System.Web.UI.WebControls.TextBox txtTemperaturaMin;
 
         /// <summary>
-        /// Control regexValidator.
+        /// Control rvTMin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexValidator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvTMin;
 
         /// <summary>
-        /// Control ddlDanio.
+        /// Control txtTemperaturaMax.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDanio;
+        protected global::System.Web.UI.WebControls.TextBox txtTemperaturaMax;
 
         /// <summary>
-        /// Control ddlSensores.
+        /// Control rvTMax.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSensores;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvTMax;
 
         /// <summary>
-        /// Control lblFlaps.
+        /// Control txtTasaFlujo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFlaps;
+        protected global::System.Web.UI.WebControls.TextBox txtTasaFlujo;
 
         /// <summary>
-        /// Control listBoxFlaps.
+        /// Control rvTF.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBoxFlaps;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvTF;
+
+        /// <summary>
+        /// Control lblVelocidadProm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVelocidadProm;
 
         /// <summary>
         /// Control txtComentarios.
@@ -139,6 +148,15 @@ namespace QMS.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptar;
+
+        /// <summary>
+        /// Control btnCD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCD;
 
         /// <summary>
         /// Control btnCancelar.

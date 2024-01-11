@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Button ID="btnAgregarReporte" runat="server" Text="Agregar reporte nueva inspección" CssClass="btn btn-outline-secondary" OnClick="btnAgregarReporte_Click"/>
+    <asp:Button ID="btnAgregarReporte" runat="server" Text="Agregar reporte nueva inspección" CssClass="btn btn-outline-secondary" OnClick="btnAgregarReporte_Click" />
 
     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     <br />
@@ -24,14 +24,19 @@
         <%  } %>
     </div>
     <br />
-    <asp:GridView runat="server" Class="table table-bordered table-condensed table-hover" ID="dgvReportes" AutoGenerateColumns="false" DataKeyNames="IdReporte" OnRowCommand="dgvReportes_RowCommand" OnRowDataBound="dgvReportes_RowDataBound">
+    <asp:GridView runat="server" Class="table table-bordered table-condensed table-hover" ID="dgvReportes" AutoGenerateColumns="false" DataKeyNames="IdReporte" OnRowCommand="dgvReportes_RowCommand" OnRowDataBound="dgvReportes_RowDataBound" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
         <Columns>
             <asp:BoundField HeaderText="IdReporte" DataField="IdReporte" />
             <asp:BoundField HeaderText="Fecha de alta" DataField="FechaCreacion" DataFormatString="{0:d}" />
             <asp:BoundField HeaderText="Tipo de inspección" DataField="TipoInspeccion.TipoInspeccion" />
+            <asp:TemplateField HeaderText="IMU" ItemStyle-VerticalAlign="Middle" >
+                <ItemTemplate>
+                    <asp:Label ID="lblIMU" runat="server" Text=''></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField HeaderText="Nombre Linea" DataField="DatosLinea.NombreLinea" />
             <asp:BoundField HeaderText="Cliente" DataField="DatosLinea.cliente.NombreCliente" />
-            <asp:BoundField HeaderText="Fecha de inspección" DataField="FechaInspeccion" DataFormatString="{0:MM/yyyy}" />       
+            <asp:BoundField HeaderText="Fecha de inspección" DataField="FechaInspeccion" DataFormatString="{0:MM/yyyy}" />
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdReporte") %>' />

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Domain;
+using System.Data;
 
 namespace QMS
 {
@@ -32,13 +33,28 @@ namespace QMS
                 ReporteNegocio reporteNegocio = new ReporteNegocio();
                 Reporte aux = reporteNegocio.buscarReporte(IdReporte);
                 Session["TipoReporte"] = aux.TipoInspeccion.IdTipoInspeccion;
-                Response.Redirect("DetalleQMS.aspx?id=" + IdReporte);
+                Response.Redirect("DetalleQMS.aspx?Id=" + IdReporte);
             }
         }
 
         protected void dgvReportes_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Domain.Reporte reporte = (Domain.Reporte)e.Row.DataItem;
+                Label lblIMU = (Label)e.Row.FindControl("lblIMU");
 
+                // Verifica si ReporteIMU es null antes de acceder a sus propiedades
+                if (reporte.ReporteIMU != null)
+                {
+                   lblIMU.Text = "Si"; // O realiza cualquier acción según tus necesidades
+                }
+                else
+                {
+                    lblIMU.Text = "No"; // ReporteIMU es null, por lo tanto, establece el texto a "No"
+                }
+
+            }
         }
 
         protected void ButtonFiltrar_Click(object sender, EventArgs e)
@@ -150,5 +166,34 @@ namespace QMS
         {
             Response.Redirect("AltaReporte.aspx", false);
         }
+        /*
+                protected void dgvReportes_RowDataBound(object sender, GridViewRowEventArgs e)
+                {
+                    if (e.Row.RowType == DataControlRowType.DataRow)
+                    {
+                        // Encuentra el índice de la columna IMU
+                        int columnIndexIMU = GetColumnIndexByName(e.Row, "IMU");
+
+                        // Verifica si el índice es válido y modifica el valor en esa celda
+                        if (columnIndexIMU >= 0)
+                        {
+                            bool valorIMU = Convert.ToBoolean(DataBinder.Eval(e.Row.DataItem, "IMU"));
+                            e.Row.Cells[columnIndexIMU].Text = valorIMU ? "Sí" : "No";
+                        }
+                    }
+                }
+
+                // Método para obtener el índice de columna por nombre
+                private int GetColumnIndexByName(GridViewRow row, string columnName)
+                {
+                    foreach (DataControlFieldCell cell in row.Cells)
+                    {
+                        if (cell.ContainingField is BoundField field && field.DataField.Equals(columnName))
+                        {
+                            return row.Cells.GetCellIndex(cell);
+                        }
+                    }
+                    return -1;
+                }*/
     }
 }

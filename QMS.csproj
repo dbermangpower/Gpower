@@ -199,6 +199,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -249,6 +250,7 @@
   <ItemGroup>
     <Content Include="Content\ReportesStyle.css" />
     <Content Include="Content\Styles.css" />
+    <Content Include="Pages\AltaContacto.aspx" />
     <Content Include="Pages\AltaHerramienta.aspx" />
     <Content Include="Pages\AltaReporte.aspx" />
     <Content Include="Pages\About.aspx" />
@@ -276,6 +278,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\DetalleCliente.aspx" />
     <Content Include="Pages\DetalleLinea.aspx" />
     <Content Include="Pages\DetalleQMS.aspx" />
     <Content Include="Pages\Error.aspx" />
@@ -283,8 +286,12 @@
     <Content Include="Pages\Lineas.aspx" />
     <Content Include="Pages\Macheo\Macheo.aspx" />
     <Content Include="Pages\ReporteBIDI.aspx" />
-    <Content Include="Pages\ReporteCLP.aspx" />
-    <Content Include="Pages\ReporteMFL.aspx" />
+    <Content Include="Pages\ReporteCLP\ReporteCLPCampo.aspx" />
+    <Content Include="Pages\ReporteCLP\ReporteCLPCD.aspx" />
+    <Content Include="Pages\ReporteCLP\ReporteCLPPO.aspx" />
+    <Content Include="Pages\ReporteMFL\ReporteMFLCampo.aspx" />
+    <Content Include="Pages\ReporteMFL\ReporteMFLCD.aspx" />
+    <Content Include="Pages\ReporteMFL\ReporteMFLPO.aspx" />
     <Content Include="Pages\Reportes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -348,6 +355,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AltaContacto.aspx.cs">
+      <DependentUpon>AltaContacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AltaContacto.aspx.designer.cs">
+      <DependentUpon>AltaContacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AltaHerramienta.aspx.cs">
       <DependentUpon>AltaHerramienta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,6 +423,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DetalleCliente.aspx.cs">
+      <DependentUpon>DetalleCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DetalleCliente.aspx.designer.cs">
+      <DependentUpon>DetalleCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DetalleLinea.aspx.cs">
       <DependentUpon>DetalleLinea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -458,19 +479,47 @@
     <Compile Include="Pages\ReporteBIDI.aspx.designer.cs">
       <DependentUpon>ReporteBIDI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ReporteCLP.aspx.cs">
-      <DependentUpon>ReporteCLP.aspx</DependentUpon>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPCampo.aspx.cs">
+      <DependentUpon>ReporteCLPCampo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\ReporteCLP.aspx.designer.cs">
-      <DependentUpon>ReporteCLP.aspx</DependentUpon>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPCampo.aspx.designer.cs">
+      <DependentUpon>ReporteCLPCampo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ReporteMFL.aspx.cs">
-      <DependentUpon>ReporteMFL.aspx</DependentUpon>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPCD.aspx.cs">
+      <DependentUpon>ReporteCLPCD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\ReporteMFL.aspx.designer.cs">
-      <DependentUpon>ReporteMFL.aspx</DependentUpon>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPCD.aspx.designer.cs">
+      <DependentUpon>ReporteCLPCD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPPO.aspx.cs">
+      <DependentUpon>ReporteCLPPO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReporteCLP\ReporteCLPPO.aspx.designer.cs">
+      <DependentUpon>ReporteCLPPO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLCampo.aspx.cs">
+      <DependentUpon>ReporteMFLCampo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLCampo.aspx.designer.cs">
+      <DependentUpon>ReporteMFLCampo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLCD.aspx.cs">
+      <DependentUpon>ReporteMFLCD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLCD.aspx.designer.cs">
+      <DependentUpon>ReporteMFLCD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLPO.aspx.cs">
+      <DependentUpon>ReporteMFLPO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReporteMFL\ReporteMFLPO.aspx.designer.cs">
+      <DependentUpon>ReporteMFLPO.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Reportes.aspx.cs">

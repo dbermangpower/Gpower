@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QMS.Pages
+namespace QMS.Pages.ReporteMFL
 {
 
 
-    public partial class ReporteMFL
+    public partial class ReporteMFLPO
     {
     }
 }

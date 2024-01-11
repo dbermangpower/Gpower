@@ -42,13 +42,13 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.TextBox txtDiametro;
 
         /// <summary>
-        /// Control regexValidator.
+        /// Control rvDiametro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexValidator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvDiametro;
 
         /// <summary>
         /// Control txtLargo.
@@ -96,22 +96,22 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.TextBox txtPresion;
 
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control ddlUnidadPresion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUnidadPresion;
 
         /// <summary>
-        /// Control RegularExpressionValidator1.
+        /// Control rvPD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rvPD;
 
         /// <summary>
         /// Control txtFactor.
@@ -123,22 +123,22 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.TextBox txtFactor;
 
         /// <summary>
-        /// Control RequiredFieldValidator2.
+        /// Control rfvFactor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFactor;
 
         /// <summary>
-        /// Control RegularExpressionValidator2.
+        /// Control revFactor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revFactor;
 
         /// <summary>
         /// Control txtMAOP.
@@ -159,6 +159,15 @@ namespace QMS.Pages
         protected global::System.Web.UI.WebControls.TextBox txtEspesorNominal;
 
         /// <summary>
+        /// Control revEspNom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEspNom;
+
+        /// <summary>
         /// Control txtEspesorMin.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace QMS.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEspesorMin;
+
+        /// <summary>
+        /// Control revEspMin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEspMin;
 
         /// <summary>
         /// Control txtEspesorMax.

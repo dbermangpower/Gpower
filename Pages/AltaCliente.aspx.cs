@@ -15,7 +15,24 @@ namespace QMS.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["Id"] != null)
+            {
+                int IdCliente = int.Parse(Request.QueryString["Id"]);
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
+                Cliente cliente = new Cliente();
+                cliente = clienteNegocio.obtenerCliente(IdCliente);
 
+                txtNombreCliente.Text = cliente.NombreCliente;
+
+                // Convertir la imagen a Base64
+                string base64String = Convert.ToBase64String(cliente.Logo);
+                string fileExtension = cliente.ExtensionLogo;
+
+                imgPreview.ImageUrl = "data:image/" + fileExtension + ";base64," + base64String;
+                imgPreview.Visible = true;
+
+                btnAgregar.Text = "Guardar Cambios";
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -24,6 +41,7 @@ namespace QMS.Pages
             Cliente cliente = new Cliente();
             try
             {
+
                 if (fileUpload.HasFile)
                 {
                     string fileName = Path.GetFileName(fileUpload.FileName);
@@ -56,14 +74,21 @@ namespace QMS.Pages
                 }
                 cliente.NombreCliente = txtNombreCliente.Text;
 
-                clienteNegocio.CrearCliente(cliente);
+                if (Request.QueryString["Id"] != null)
+                {
+                    clienteNegocio.actualizarCliente(cliente);
+                }
+                else
+                {
+                    clienteNegocio.CrearCliente(cliente);
+                }
+
             }
             catch (Exception ex)
             {
-
-                throw ex;
-            }
-            
+                Session.Add("Error", ex);
+                Response.Redirect("Error.aspx", false);
             }
         }
     }
+}

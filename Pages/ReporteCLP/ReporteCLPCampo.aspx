@@ -1,7 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReporteCLP.aspx.cs" Inherits="QMS.Pages.ReporteCLP" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReporteCLPCampo.aspx.cs" Inherits="QMS.Pages.ReporteCLP.ReporteCLPCampo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="../Content/ReportesStyle.css">
+    <style>
+        .multiColumnCheckBoxList {
+            column-count: 1; /* Configura el número inicial de columnas */
+            column-gap: 10px; /* Espaciado entre columnas */
+        }
+
+            .multiColumnCheckBoxList.multiColumn {
+                column-count: 2; /* Cambia a dos columnas si tiene más de 5 elementos */
+            }
+    </style>
+
     <div class="container forget-password">
         <div class="row">
             <div class="col-xxl-12 col-md-offset-4">
@@ -43,8 +54,10 @@
                                     <td>Residuos recolectados:</td>
                                     <td>
                                         <asp:TextBox ID="txtResiduos" runat="server" CssClass="form-control"></asp:TextBox></td>
-                                    <asp:RegularExpressionValidator ID="regexValidator" runat="server" ControlToValidate="txtResiduos"
-                                        ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="^\d+(\.\d+)?$" />
+                                    <td>kg</td>
+                                    <td>
+                                        <asp:RegularExpressionValidator ID="rvResiduos" runat="server" ControlToValidate="txtResiduos"
+                                            ErrorMessage="Por favor, introduce un valor válido." ValidationExpression="\d+(\,\d{1,2})?" /></td>
                                 </tr>
                                 <tr>
                                     <td>Daño en Herramienta</td>
@@ -55,13 +68,14 @@
                                     <td>Sensores dañados:</td>
                                     <td>
                                         <asp:DropDownList ID="ddlSensores" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlSensores_SelectedIndexChanged"></asp:DropDownList>
+                                </tr>
+                                <tr>
                                     <td>
                                         <asp:Label ID="lblFlaps" runat="server" Text="Enumere Flaps dañados"></asp:Label></td>
                                     <td>
-                                        <asp:ListBox ID="listBoxFlaps" runat="server"></asp:ListBox></td>
-                                    0
+                                        <asp:CheckBoxList ID="chkbFlaps" runat="server" CssClass="multiColumn"></asp:CheckBoxList>
+                                    </td>
                                 </tr>
-
                                 <tr>
                                     <td>Comentarios:</td>
                                     <td>
@@ -69,7 +83,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" /></td>
+                                        <asp:Button ID="btnAceptar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" /><asp:Button ID="btnVolver" OnClick="btnVolver_Click" Visible="false" runat="server" Text="Volver" CssClass="btn btn-secondary" /></td>
+                                    <td>
+                                        <asp:Button ID="btnPO" runat="server" Text="Cargar parámetros de operación" CssClass="btn btn-primary" OnClick="btnPO_Click" /></td>
                                     <td>
                                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelar_Click" /></td>
                                 </tr>
