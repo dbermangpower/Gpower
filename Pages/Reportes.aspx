@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Button ID="btnAgregarReporte" runat="server" Text="Agregar reporte nueva inspección" CssClass="btn btn-outline-secondary" OnClick="btnAgregarReporte_Click" />
+    <asp:Button ID="btnAgregarReporte" runat="server" Text="Agregar inspección" CssClass="btn btn-outline-secondary" OnClick="btnAgregarReporte_Click" />
 
     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     <br />

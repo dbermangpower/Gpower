@@ -42,7 +42,7 @@
                 <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <asp:LinkButton Text="Editar" runat="server" ID="btnEditar" CommandName="btnEditar" CommandArgument='<%#Eval("IdHerramienta") %>' CssClass="btn btn-secondary" Width="100px" />
-                        <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdHerramienta") %>' CssClass="btn btn-primary" Width="100px" />
+                        <asp:LinkButton Text="Ver detalle" runat="server" ID="btnDetalle" CommandName="btnDetalle" CommandArgument='<%#Eval("IdHerramienta") %>' CssClass="btn btn-primary" Width="120px" />
                     </ItemTemplate>
                     <ItemStyle Width="250px" HorizontalAlign="Center" />
                 </asp:TemplateField>

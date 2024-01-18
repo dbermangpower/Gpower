@@ -14,10 +14,10 @@ namespace QMS.Pages
         public int IdReporteSeleccionado { get; set; }
         public bool reporteMFL { get; set; }
         public bool reporteCLP { get; set; }
+        public bool reporteIMU { get; set; }
 
         public Reporte reporte = null;
         protected bool reporteBIDI = false;
-        public Domain.ReporteBIDI ReporteBIDIDatos { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace QMS.Pages
         {
             try
             {
-                if(Request.QueryString["Id"] != null)
+                if (Request.QueryString["Id"] != null)
                 {
                     //Capturo el valor de Id del reporte seleccionado
                     IdReporteSeleccionado = Convert.ToInt32(Request.QueryString["Id"]);
@@ -42,34 +42,33 @@ namespace QMS.Pages
                     reporte = reporteNegocio.buscarReporte(IdReporteSeleccionado);
 
                     //Verifico si tiene ingresado un reporte BIDI
-                    if(reporte.ReporteBIDI != null)
+                    if (reporte.ReporteBIDI != null)
                     {
                         reporteBIDI = true;
 
                         ReporteBIDINegocio reporteBIDINegocio = new ReporteBIDINegocio();
-                        ReporteBIDIDatos = new Domain.ReporteBIDI();
+                        reporte.ReporteBIDI = reporteBIDINegocio.buscarReporte(reporte.ReporteBIDI.IdReporteBIDI);
 
-                        ReporteBIDIDatos = reporteBIDINegocio.buscarReporte(reporte.ReporteBIDI.IdReporteBIDI);
-
-                        lblHerramienta.Text = ReporteBIDIDatos.Herramienta.Nombre;
-                        lblFechaOperacion.Text = ReporteBIDIDatos.fechaOperacion.Date.ToString("dd/MM/yyyy");
-                        lblHoraOperacion.Text = ReporteBIDIDatos.fechaOperacion.TimeOfDay.ToString();
-                        lblFechaRecepcion.Text = ReporteBIDIDatos.fechaRecepcion.Date.ToString("dd/MM/yyyy");
-                        lblHoraRecepcion.Text = ReporteBIDIDatos.fechaRecepcion.TimeOfDay.ToString();
-                        lblResiduosRecolectados.Text = ReporteBIDIDatos.residuosRecolectados.ToString();
-                        lblMaximaReduccion.Text = ReporteBIDIDatos.maximaReduccion.ToString();
-                        lblDanioPlaca.Text = ReporteBIDIDatos.danio.danio;
-                        if(ReporteBIDIDatos.danio.IdDanio == 1)
+                        lblHerramienta.Text = reporte.ReporteBIDI.Herramienta.Nombre;
+                        lblFechaOperacion.Text = reporte.ReporteBIDI.fechaOperacion.Date.ToString("dd/MM/yyyy");
+                        lblHoraOperacion.Text = reporte.ReporteBIDI.fechaOperacion.TimeOfDay.ToString();
+                        lblFechaRecepcion.Text = reporte.ReporteBIDI.fechaRecepcion.Date.ToString("dd/MM/yyyy");
+                        lblHoraRecepcion.Text = reporte.ReporteBIDI.fechaRecepcion.TimeOfDay.ToString();
+                        lblResiduosRecolectados.Text = reporte.ReporteBIDI.residuosRecolectados.ToString();
+                        lblMaximaReduccion.Text = reporte.ReporteBIDI.maximaReduccion.ToString();
+                        lblDanioPlaca.Text = reporte.ReporteBIDI.danio.danio;
+                        if (reporte.ReporteBIDI.danio.IdDanio == 1)
                         {
                             lblTipoDeformacion.Visible = false;
                             lblTipo.Visible = false;
-                        } else
+                        }
+                        else
                         {
-                            lblTipoDeformacion.Text = ReporteBIDIDatos.TipoDeformacion.tipoDeformacion;
+                            lblTipoDeformacion.Text = reporte.ReporteBIDI.TipoDeformacion.tipoDeformacion;
                         }
 
                         //Calculo de duración
-                        TimeSpan diferenciaBIDI = ReporteBIDIDatos.fechaRecepcion - ReporteBIDIDatos.fechaOperacion;
+                        TimeSpan diferenciaBIDI = reporte.ReporteBIDI.fechaRecepcion - reporte.ReporteBIDI.fechaOperacion;
 
                         double totalHoras = diferenciaBIDI.TotalHours;
 
@@ -85,61 +84,60 @@ namespace QMS.Pages
                     {
                         reporteBIDI = false;
                     }
-                    if(reporte.TipoInspeccion.IdTipoInspeccion != 1)
+                    if (reporte.TipoInspeccion.IdTipoInspeccion != 1)
                     {
-                        if(reporte.ReporteCLP != null)
+                        if (reporte.ReporteCLP != null)
                         {
                             reporteCLP = true;
+                            ReporteCLPNegocio reporteCLPNegocio = new ReporteCLPNegocio();
 
-                            Domain.ReporteCLP repCLP = new Domain.ReporteCLP();
-                            ReporteCLPNegocio reporteCLPnegocio = new ReporteCLPNegocio();
+                            reporte.ReporteCLP = reporteCLPNegocio.buscarReporte(reporte.ReporteCLP.IdReporteCLP);
 
-                            //Busco los datos almacenados en la BD del reporte
-                            repCLP = reporteCLPnegocio.buscarReporte(reporte.ReporteCLP.IdReporteCLP);
-                            lblHerramientaCLP.Text = repCLP.Herramienta.Nombre;
-                            lblFOCLP.Text = repCLP.fechaOperacion.Date.ToString("dd/MM/yyyy");
-                            lblHOCLP.Text = repCLP.fechaOperacion.TimeOfDay.ToString();
-                            lblFRCLP.Text = repCLP.fechaRecepcion.Date.ToString("dd/MM/yyyy");
-                            lblHRCLP.Text = repCLP.fechaRecepcion.TimeOfDay.ToString();
+                            lblHerramientaCLP.Text = reporte.ReporteCLP.Herramienta.Nombre;
+                            lblFOCLP.Text = reporte.ReporteCLP.fechaOperacion.Date.ToString("dd/MM/yyyy");
+                            lblHOCLP.Text = reporte.ReporteCLP.fechaOperacion.TimeOfDay.ToString();
+                            lblFRCLP.Text = reporte.ReporteCLP.fechaRecepcion.Date.ToString("dd/MM/yyyy");
+                            lblHRCLP.Text = reporte.ReporteCLP.fechaRecepcion.TimeOfDay.ToString();
 
                             // ver funcion para automatizar el numero de inspeccion
                             lblNumInspCLP.Text = "1";
 
-                            lblResiduosCLP.Text = repCLP.residuosRecolectados.ToString();
-                            lblDanioCLP.Text = repCLP.Danio.danio;
+                            lblResiduosCLP.Text = reporte.ReporteCLP.residuosRecolectados.ToString();
+                            lblDanioCLP.Text = reporte.ReporteCLP.Danio.danio;
 
-                            if(repCLP.sensoresDaniados == true)
+                            if (reporte.ReporteCLP.sensoresDaniados == true)
                             {
                                 lblSensoresCLPDaniados.Text = "Si";
-                                lblSensoresCLP.Text = repCLP.sensoresD;
-                            } else
+                                lblSensoresCLP.Text = reporte.ReporteCLP.sensoresD;
+                            }
+                            else
                             {
                                 lblSensoresCLPDaniados.Text = "No";
                                 lblSensoresCLP.Visible = false;
                             }
-                            if (repCLP.presionLanzador != 0)
+                            if (reporte.ReporteCLP.presionLanzador != 0)
                             {
-                                lblPLCLP.Text = repCLP.presionLanzador.ToString();
+                                lblPLCLP.Text = reporte.ReporteCLP.presionLanzador.ToString();
                             }
-                            if (repCLP.presionRecibidor != 0)
+                            if (reporte.ReporteCLP.presionRecibidor != 0)
                             {
-                                lblPRCLP.Text = repCLP.presionRecibidor.ToString();
+                                lblPRCLP.Text = reporte.ReporteCLP.presionRecibidor.ToString();
                             }
-                            if (repCLP.temperaturaMin != 0)
+                            if (reporte.ReporteCLP.temperaturaMin != 0)
                             {
-                                lblTminCLP.Text = repCLP.temperaturaMin.ToString();
+                                lblTminCLP.Text = reporte.ReporteCLP.temperaturaMin.ToString();
                             }
-                            if (repCLP.temperaturaMax != 0)
+                            if (reporte.ReporteCLP.temperaturaMax != 0)
                             {
-                                lblTmaxCLP.Text = repCLP.temperaturaMax.ToString();
+                                lblTmaxCLP.Text = reporte.ReporteCLP.temperaturaMax.ToString();
                             }
-                            if (repCLP.tasaFlujo != 0)
+                            if (reporte.ReporteCLP.tasaFlujo != 0)
                             {
-                                lblFlujoCLP.Text = repCLP.tasaFlujo.ToString();
+                                lblFlujoCLP.Text = reporte.ReporteCLP.tasaFlujo.ToString();
                             }
 
                             //Calculo de duración
-                            TimeSpan diferenciaCLP = repCLP.fechaRecepcion - repCLP.fechaOperacion;
+                            TimeSpan diferenciaCLP = reporte.ReporteCLP.fechaRecepcion - reporte.ReporteCLP.fechaOperacion;
 
                             double totalHoras = diferenciaCLP.TotalHours;
                             double totalSegundos = diferenciaCLP.TotalSeconds;
@@ -157,50 +155,45 @@ namespace QMS.Pages
 
                             // Convertir el resultado a cadena y asignarlo al Label
                             lblVelProm.Text = velocidadPromedio.ToString("#,0.00"); // Muestra el resultado con 2 decimales
-                        }             
+                        }
                     }
                     if (reporte.TipoInspeccion.IdTipoInspeccion != 2)
                     {
-                        if(reporte.ReporteMFL != null)
+                        if (reporte.ReporteMFL != null)
                         {
                             reporteMFL = true;
+                            ReporteMFLNegocio reporteMFLNegocio = new ReporteMFLNegocio();
 
-                            /* Domain.ReporteMFL repMFL = new Domain.ReporteMFL();
-                             ReporteMFLNegocio reporteMFLNegocio = new ReporteMFLNegocio();
-
-                             repMFL = reporteMFLNegocio.buscarReporte(reporte.ReporteMFL.IdReporteMFL);
-
-                             lblHerramientaMFL.Text = repMFL.Herramienta.Nombre;
-                             lblFOMFL.Text = repMFL.fechaOperacion.Date.ToString("dd/MM/yyyy");
-                             lblHOMFL.Text = repMFL.fechaOperacion.TimeOfDay.ToString();
-                             lblFRMFL.Text = repMFL.fechaRecepcion.Date.ToString("dd/MM/yyyy");
-                             lblHRMFL.Text = repMFL.fechaRecepcion.TimeOfDay.ToString();
-                            */
+                            reporte.ReporteMFL = reporteMFLNegocio.buscarReporte(reporte.ReporteMFL.IdReporteMFL);
 
                             lblHerramientaMFL.Text = reporte.ReporteMFL.Herramienta.Nombre;
-                            //lblFOMFL.Text = reporte.ReporteMFL.fechaOperacion.Date.ToString("dd/MM/yyyy");
-                           // lblHOMFL.Text = reporte.ReporteMFL.fechaOperacion.TimeOfDay.ToString();
-                            //lblFRMFL.Text = reporte.ReporteMFL.fechaRecepcion.Date.ToString("dd/MM/yyyy");
-                            //lblHRMFL.Text = reporte.ReporteMFL.fechaRecepcion.TimeOfDay.ToString();
+                            lblFOMFL.Text = reporte.ReporteMFL.fechaOperacion.Date.ToString("dd/MM/yyyy");
+                            lblHOMFL.Text = reporte.ReporteMFL.fechaOperacion.TimeOfDay.ToString();
+                            lblFRMFL.Text = reporte.ReporteMFL.fechaRecepcion.Date.ToString("dd/MM/yyyy");
+                            lblHRMFL.Text = reporte.ReporteMFL.fechaRecepcion.TimeOfDay.ToString();
+
+                            lblHerramientaMFL.Text = reporte.ReporteMFL.Herramienta.Nombre;
+
 
                             //Calculo de duración
-                            //TimeSpan diferenciaMFL = reporte.ReporteMFL.fechaRecepcion - reporte.ReporteMFL.fechaOperacion;
+                            TimeSpan diferenciaMFL = reporte.ReporteMFL.fechaRecepcion - reporte.ReporteMFL.fechaOperacion;
 
-                          //  double totalHoras = diferenciaMFL.TotalHours;
-                           // double totalSegundos = diferenciaMFL.TotalSeconds;
+                            double totalHoras = diferenciaMFL.TotalHours;
+                            double totalSegundos = diferenciaMFL.TotalSeconds;
 
-                            //int horas = (int)totalHoras; // Obtiene la parte entera (horas)
-                          //  int minutos = (int)((totalHoras - horas) * 60); // Calcula los minutos
+                            int horas = (int)totalHoras; // Obtiene la parte entera (horas)
+                            int minutos = (int)((totalHoras - horas) * 60); // Calcula los minutos
 
-                            // Formatea para mostrar en formato "hh:mm"
-                          //  string duracionFormateada = $"{horas:00}:{minutos:00}";
+                            //Formatea para mostrar en formato "hh:mm"
+                            string duracionFormateada = $"{horas:00}:{minutos:00}";
 
                             // Calcular la velocidad promedio en metros por segundo con un decimal
-                         //   decimal velocidadPromedio = (decimal)(reporte.DatosLinea.LargoTuberia * 1000) / (decimal)totalSegundos;
+                            decimal velocidadPromedio = (decimal)(reporte.DatosLinea.LargoTuberia * 1000) / (decimal)totalSegundos;
 
-                          //  lblDuracionMFL.Text = duracionFormateada; // Asigna al texto del label la duración formateada
+                            lblDuracionMFL.Text = duracionFormateada; // Asigna al texto del label la duración formateada
                         }
-                    } else
+                    }
+                    else
                     {
                         reporteMFL = false;
                     }
@@ -209,7 +202,7 @@ namespace QMS.Pages
             catch (Exception ex)
             {
                 Session.Add("Error", ex);
-                Response.Redirect("Error.aspx",false);
+                Response.Redirect("Error.aspx", false);
             }
         }
 

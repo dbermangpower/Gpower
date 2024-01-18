@@ -1,41 +1,71 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="QMS._Default" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
         <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="aspnetTitle">ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-            <p><a href="http://www.asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+            <h1 id="aspnetTitle">Dashboard:</h1>
+            <p class="lead">
+                <asp:Chart ID="ChartClientes" runat="server">
+                    <Series>
+                        <asp:Series Name="Series1" ChartArea="ChartArea">
+                            <Points>
+                            </Points>
+                        </asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea">
+                            <AxisX Title="Clientes">
+                                <MajorGrid Enabled="False" />
+                            </AxisX>
+                            <AxisY Title="Cantidad de Reportes">
+                                <MajorGrid Enabled="False" />
+                            </AxisY>
+                        </asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+            </p>
         </section>
 
         <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                <h2 id="gettingStartedTitle">Getting started</h2>
+            <section class="col-md-4 card" aria-labelledby="gettingStartedTitle">
+                <h2 id="gettingStartedTitle" style="text-align: center">Próxima inspección:</h2>
+                <h4 style="text-align: center">
+                    <asp:Label ID="lblClienteProx" runat="server" Text="Label"></asp:Label></h4>
                 <p>
-                    ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-                A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                    Línea: 
+                    <asp:Label ID="lblLineaProx" runat="server" Text="Label"></asp:Label>
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                </p>
-            </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
-                <h2 id="librariesTitle">Get more libraries</h2>
-                <p>
-                    NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                    Fecha de inspección: 
+                    <asp:Label ID="lblFechaProx" runat="server" Text="Label"></asp:Label>
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                    <asp:LinkButton ID="btnDetalles" runat="server" OnClick="btnDetalles_Click" CssClass="btn btn-default">Detalles &raquo;</asp:LinkButton>
                 </p>
             </section>
-            <section class="col-md-4" aria-labelledby="hostingTitle">
-                <h2 id="hostingTitle">Web Hosting</h2>
+            <section class="col-md-4 card" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Cantidad de inspecciones <%= DateTime.Now.Year %>:</h2>
                 <p>
-                    You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                    <asp:Label ID="lblCantInspecciones" runat="server" Text="Label"></asp:Label>
+                </p>
+
+            </section>
+            <section class="col-md-4 card" aria-labelledby="hostingTitle">
+                <h2 id="hostingTitle">Últimas herramientas utilizadas:</h2>
+                <p>
+                    BIDI:
+                    <asp:Label ID="lblUltimoBIDI" runat="server" Text="Label"></asp:Label>
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                    CLP:
+                    <asp:Label ID="lblUltimoCLP" runat="server" Text="Label"></asp:Label>
+                </p>
+                <p>
+                    MFL:
+                    <asp:Label ID="lblUltimoMFL" runat="server" Text="Label"></asp:Label>
                 </p>
             </section>
         </div>
